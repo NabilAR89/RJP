@@ -1,0 +1,233 @@
+@mixin transition($args: all 0.1s linear) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin transition-duration($args1, $args2) {
+  -webkit-transition-duration: $args1, $args2;
+  -moz-transition-duration: $args1, $args2;
+  -o-transition-duration: $args1, $args2;
+  transition-duration: $args1, $args2;
+}
+
+@mixin transition-delay($args1, $args2) {
+  -webkit-transition-delay: $args1, $args2;
+  -moz-transition-delay: $args1, $args2;
+  -o-transition-delay: $args1, $args2;
+  transition-delay: $args1, $args2;
+}
+
+@mixin transition-property($args1, $args2) {
+  -webkit-transition-property: $args1, $args2;
+  -moz-transition-property: $args1, $args2;
+  -o-transition-property: $args1, $args2;
+  transition-property: $args1, $args2;
+}
+
+// background: -moz-linear-gradient(0deg, #91d1ff, #a387ff);
+// background: -webkit-linear-gradient(0deg, #91d1ff, #a387ff);
+// background: -ms-linear-gradient(0deg, #91d1ff, #a387ff);
+
+@mixin gradient($args1, $args2) {
+  -webkit-linear-gradient: (0deg, $args1, $args2);
+  -moz-linear-gradient: (0deg, $args1, $args2);
+  -o-linear-gradient: (0deg, $args1, $args2);
+  -linear-gradient: (0deg, $args1, $args2);
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+@mixin transform-origin($value) {
+  -webkit-transform-origin: $value;
+  -moz-transform-origin: $value;
+  -ms-transform-origin: $value;
+  -o-transform-origin: $value;
+  transform-origin: $value;
+}
+
+@mixin backface-visibility($value) {
+  -webkit-backface-visibility: $value;
+  -moz-backface-visibility: $value;
+  backface-visibility: $value;
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($delay, $duration, $animation) {
+  -webkit-animation-delay: $delay;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-name: $animation;
+  -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+  -moz-animation-delay: $delay;
+  -moz-animation-duration: $duration;
+  -moz-animation-name: $animation;
+  -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+  -o-animation-delay: $delay;
+  -o-animation-duration: $duration;
+  -o-animation-name: $animation;
+  -o-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $animation;
+  animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius !important;
+  -webkit-border-radius: $radius !important;
+  border-radius: $radius !important;
+}
+
+@mixin box-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $default) {
+  box-shadow: $x-axis $y-axis $blur $color;
+}
+
+@mixin text-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $default) {
+  text-shadow: $x-axis $y-axis $blur $color;
+}
+
+@mixin add-border($size, $color, $position) {
+  @if $position == "all" {
+    border: $size solid $color;
+  } @else if $position == "top" {
+    border-top: $size solid $color;
+  } @else if $position == "bottom" {
+    border-bottom: $size solid $color;
+  } @else if $position == "right" {
+    border-right: $size solid $color;
+  } @else if $position == "left" {
+    border-left: $size solid $color;
+  } @else if $position == "top-bottom" {
+    border-top: $size solid $color;
+    border-bottom: $size solid $color;
+  } @else if $position == "right-left" {
+    border-left: $size solid $color;
+    border-right: $size solid $color;
+  }
+}
+
+@mixin add-background($color) {
+  background: $color;
+  @if $color == $gray-100 {
+    color: #666666;
+  } @else {
+    color: #ffffff;
+  }
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+    -moz-box-shadow: inset $top $left $blur $color;
+    box-shadow: inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+/* Cross Browser CSS Rotation Mixin */
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+// Button sizes
+@mixin button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  line-height: $line-height;
+  // Manually declare to provide an override to the browser default
+  @if $enable-rounded {
+    border-radius: $border-radius;
+  } @else {
+    border-radius: 0;
+  }
+}
+
+@mixin bg-color($color) {
+  background: $color;
+}
+
+
+@mixin icon-color($color, $opacity: 0.3) {
+  background: $color;
+  @include box-shadow(0, .5rem, .8rem, rgba($color, $opacity));
+}
+
+@mixin delayed-transition {
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      transition: all .2s #{$i * .1}s ease-in;
+    }
+  }
+}
+// =============================================================================
+
+/* Medium Layout: 1280px */
+@mixin medium {
+  @media (min-width: 992px) and (max-width: 1400px) {
+    @content;
+  }
+}
+
+/* Tablet Layout: 768px */
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+/* Mobile Layout: 320px */
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+/* Wide Mobile Layout: 480px */
+@mixin wide-mobile {
+  @media (min-width: 480px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin cmq($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}

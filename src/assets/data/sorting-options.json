@@ -1,0 +1,18 @@
+[
+  {
+    "id": "most-upvotes",
+    "label": "most upvotes"
+  },
+  {
+    "id": "least-upvotes",
+    "label": "least upvotes"
+  },
+  {
+    "id": "most-comments",
+    "label": "most comments"
+  },
+  {
+    "id": "least-comments",
+    "label": "least comments"
+  }
+]

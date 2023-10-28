@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+/* Custom Variables */
+@import "assets/base/_variables.scss";
+
+/* Bootstrap */
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* Base */
+@import "assets/base/_mixins.scss";
+@import "assets/base/_normalize.scss";
+
+/* Importing Main Layout file. */
+@import "assets/_layout.scss";

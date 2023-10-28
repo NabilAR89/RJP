@@ -1,0 +1,29 @@
+<h1>feedback board module here !</h1>
+<ng-container *ngIf="feedbackList.length > 0">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="section-title">feedback board</div>
+    </div>
+    <div class="col-md-8">
+      <div class="filter-area">
+        <div class="d-flex align-items-center">
+          <span>Sort by:</span>
+        </div>
+      </div>
+      <ng-container *ngFor="let feedbackItem of feedbackList">
+        <div class="feedback-item">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="total-upvotes">{{ feedbackItem.upvotes }}</div>
+            <div>
+              <h2>{{ feedbackItem.title }}</h2>
+              <p>{{ feedbackItem.description }}</p>
+            </div>
+            <div class="total-comments">
+              <span>{{ feedbackItem.comments }}</span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
