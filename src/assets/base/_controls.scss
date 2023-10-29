@@ -26,3 +26,22 @@
   background: transparent;
   border: 0;
 }
+.mdc-menu-surface.mat-mdc-select-panel {
+  .mat-mdc-option .mdc-list-item__primary-text {
+    font-weight: $font-weight-normal;
+    font-family: $font-family-base;
+    text-transform: capitalize;
+  }
+}
+.mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal {
+  &::after {
+    color: $primary;
+  }
+}
+
+.mat-primary
+  .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled)
+  .mdc-list-item__primary-text {
+  font-weight: $font-weight-semi-bold;
+  color: $primary;
+}

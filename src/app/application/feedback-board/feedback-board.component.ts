@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { faChevronUp, faComment } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { StorageHelper } from 'src/app/core/helpers/storage.helper';
 import {
@@ -21,6 +22,9 @@ export class FeedbackBoardComponent implements OnInit, OnDestroy {
   public form: FormGroup = new FormGroup({});
   public subscription: Subscription = new Subscription();
   readonly storageHelper = new StorageHelper();
+
+  faChevronUp = faChevronUp;
+  faComment = faComment;
 
   constructor(
     private feedbackBoardService: FeedbackBoardService,

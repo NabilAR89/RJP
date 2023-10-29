@@ -1,5 +1,8 @@
 .main-wrapper {
-  padding-top: 10rem;
+  padding-top: 5rem;
+  @include media-breakpoint-down(md) {
+    padding-top: 0;
+  }
 }
 
 .section-title {
@@ -14,8 +17,69 @@
     rgba(40, 167, 237, 1) 100%
   );
   @include border-radius(1rem);
+
+  @include media-breakpoint-down(md) {
+    @include border-radius(0);
+  }
 }
 
 .filter-area {
   @include border-radius(1rem);
+}
+
+.feedback-item {
+  padding: 2.4rem;
+  cursor: pointer;
+  transition: all linear 0.2s;
+  @include border-radius(1rem);
+  @include box-shadow(0, 0, 0.2rem, rgba(55, 62, 106, 0.1));
+  &:hover {
+    @include box-shadow(0, 0, 1rem, rgba(55, 62, 106, 0.2));
+  }
+
+  .feedback-description {
+    padding-left: 2rem;
+    & > p {
+      margin: 0;
+    }
+    &:hover {
+      h2 {
+        color: #4661e6;
+      }
+    }
+  }
+
+  .upvote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $primary;
+    gap: 0.8rem;
+    height: 5.3rem;
+    width: 5rem;
+    line-height: 1rem;
+    border: 0;
+    background: $blue-200;
+    font-size: 1.3rem;
+    font-weight: $font-weight-bold;
+    transition: all linear 0.2s;
+    @include border-radius(1rem);
+    &:hover {
+      background: #4661e6;
+      color: $white;
+    }
+  }
+
+  .total-comments {
+    display: flex;
+    align-items: center;
+    & > .ng-fa-icon {
+      color: $blue-300;
+    }
+    & > span {
+      color: $primary;
+      font-weight: $font-weight-bold;
+    }
+  }
 }

@@ -1,14 +1,14 @@
 <div class="row">
-  <div class="col-lg-3 px-4">
+  <div class="col-lg-3 px-md-4">
     <div
-      class="section-title text-white text-capitalize d-flex align-items-end ps-4 pb-4"
+      class="section-title text-white text-capitalize d-flex align-items-end ps-4 pb-4 mb-5 mb-lg-0"
     >
       feedback board
     </div>
   </div>
   <div class="col-lg-9 px-4">
     <ng-container *ngIf="sortingList.length > 0">
-      <div class="filter-area bg-primary text-white py-3 px-5">
+      <div class="filter-area bg-primary text-white py-3 px-5 mb-4 mb-lg-5">
         <form *ngIf="form" [formGroup]="form" autocomplete="off">
           <div class="d-flex align-items-center">
             <span>Sort by:</span>
@@ -31,14 +31,26 @@
     </ng-container>
     <ng-container *ngIf="feedbackList.length > 0">
       <ng-container *ngFor="let feedbackItem of feedbackList">
-        <div class="feedback-item">
-          <div class="d-flex align-items-center justify-content-between">
-            <div class="total-upvotes">{{ feedbackItem.upvotes }}</div>
-            <div>
+        <div class="feedback-item bg-white mb-4">
+          <div class="d-flex justify-content-between gap-lg-5">
+            <div class="total-upvotes">
+              <button class="upvote">
+                <fa-icon
+                  [icon]="faChevronUp"
+                  class="d-block text-center"
+                ></fa-icon>
+                {{ feedbackItem.upvotes }}
+              </button>
+            </div>
+            <div class="feedback-description flex-grow-1">
               <h2>{{ feedbackItem.title }}</h2>
               <p>{{ feedbackItem.description }}</p>
             </div>
             <div class="total-comments">
+              <fa-icon
+                [icon]="faComment"
+                class="d-inline-block text-center me-3"
+              ></fa-icon>
               <span>{{ feedbackItem.comments }}</span>
             </div>
           </div>
