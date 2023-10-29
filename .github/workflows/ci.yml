@@ -1,5 +1,8 @@
 name: CI Workflow
 
+runs:
+  using: "node20"
+
 on:
   push:
     branches:
