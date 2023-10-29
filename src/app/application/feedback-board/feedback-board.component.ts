@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { faChevronUp, faComment } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { StorageHelper } from 'src/app/core/helpers/storage.helper';
 import {
@@ -23,20 +22,19 @@ export class FeedbackBoardComponent implements OnInit, OnDestroy {
   public subscription: Subscription = new Subscription();
   readonly storageHelper = new StorageHelper();
 
-  faChevronUp = faChevronUp;
-  faComment = faComment;
-
   constructor(
     private feedbackBoardService: FeedbackBoardService,
     private sortingService: SortingService,
     private formBuilder: FormBuilder
   ) {}
 
+  /* ngOnInit Lifecycle Hook that is called after the constructor is called and after the component's inputs have been initialized */
   ngOnInit(): void {
     this.getFeedbackList();
     this.getSortingList();
   }
 
+  /* Fetch Feedback Data using the feedbackBoardService Class instance.*/
   private getFeedbackList(): void {
     this.feedbackBoardService.getFeedbackList().subscribe({
       next: (data) => {
@@ -49,6 +47,7 @@ export class FeedbackBoardComponent implements OnInit, OnDestroy {
     });
   }
 
+  /* Fetch Sorting options Data using the sortingService Class instance.*/
   private getSortingList(): void {
     this.sortingService.getSortingList().subscribe({
       next: (data) => {
@@ -58,11 +57,13 @@ export class FeedbackBoardComponent implements OnInit, OnDestroy {
     });
   }
 
+  /* Initialise form fields */
   private initForm() {
     this.form = this.formBuilder.group({
       sortBy: new FormControl(SortingOptionEnum.mostUpvotes),
     });
 
+    /* Subscribe to the 'sortBy' field in the form and return the last updated value on every change. */
     this.subscription = this.form
       .get('sortBy')
       ?.valueChanges.subscribe((res) => {
@@ -75,19 +76,24 @@ export class FeedbackBoardComponent implements OnInit, OnDestroy {
     this.fillForm();
   }
 
+  /* fill form fields */
   private fillForm(): void {
+    /* Check if 'sortBy' property exists in the browser storage. */
     if (
       this.storageHelper.check('sortBy') &&
       this.storageHelper.get('sortBy')
     ) {
+      /* If property exists, automatically fill the orm field and update the sorting list. This will help us to catch the latest user change on browser refresh */
       this.form.patchValue({
         sortBy: this.storageHelper.get('sortBy'),
       });
     } else {
+      /* If property does not exists, sort by default value: 'most upvotes'*/
       this.sortFeedbackList(SortingOptionEnum.mostUpvotes);
     }
   }
 
+  /* Detect which property should be sorted by */
   private sortFeedbackList(sortOption: string) {
     switch (sortOption) {
       case SortingOptionEnum.leastComments:
@@ -112,6 +118,7 @@ export class FeedbackBoardComponent implements OnInit, OnDestroy {
     }
   }
 
+  /* sort by descending order and exact property */
   private sortListDesc(option: string): void {
     if (option === SortingLabelEnum.upvotes) {
       this.feedbackList = this.feedbackList.sort(
@@ -126,6 +133,7 @@ export class FeedbackBoardComponent implements OnInit, OnDestroy {
     }
   }
 
+  /* sort by ascending order and exact property */
   private sortListAsc(option: string) {
     if (option === SortingLabelEnum.upvotes) {
       this.feedbackList = this.feedbackList.sort(
@@ -140,7 +148,9 @@ export class FeedbackBoardComponent implements OnInit, OnDestroy {
     }
   }
 
+  /* ngOnDestroy Lifecycle Hook is called directly before the component instance is destroyed*/
   ngOnDestroy(): void {
+    /* Unsubcribe from the subscription to prevent memory leaks */
     this.subscription.unsubscribe();
   }
 }

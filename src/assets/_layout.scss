@@ -23,7 +23,7 @@
   }
 }
 
-.filter-area {
+.sorting-area {
   @include border-radius(1rem);
 }
 
@@ -57,7 +57,7 @@
     color: $primary;
     gap: 0.8rem;
     height: 5.3rem;
-    width: 5rem;
+    min-width: 5rem;
     line-height: 1rem;
     border: 0;
     background: $blue-200;
@@ -65,7 +65,8 @@
     font-weight: $font-weight-bold;
     transition: all linear 0.2s;
     @include border-radius(1rem);
-    &:hover {
+    &:hover,
+    &.active {
       background: #4661e6;
       color: $white;
     }

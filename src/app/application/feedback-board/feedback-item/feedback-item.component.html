@@ -1,0 +1,27 @@
+<div class="feedback-item bg-white mb-4">
+  <div class="d-flex justify-content-between gap-lg-5">
+    <div class="total-upvotes">
+      <button
+        class="upvote"
+        (click)="upvote()"
+        [ngClass]="{
+          active: isUpvoted
+        }"
+      >
+        <fa-icon [icon]="faChevronUp" class="d-block text-center"></fa-icon>
+        {{ feedbackItem.upvotes }}
+      </button>
+    </div>
+    <div class="feedback-description flex-grow-1">
+      <h2>{{ feedbackItem.title }}</h2>
+      <p>{{ feedbackItem.description }}</p>
+    </div>
+    <div class="total-comments">
+      <fa-icon
+        [icon]="faComment"
+        class="d-inline-block text-center me-3"
+      ></fa-icon>
+      <span>{{ feedbackItem.comments }}</span>
+    </div>
+  </div>
+</div>
