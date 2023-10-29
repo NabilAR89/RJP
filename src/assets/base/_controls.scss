@@ -1,0 +1,28 @@
+.mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background: none;
+  color: $white;
+  font-weight: $font-weight-semi-bold;
+}
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-infix .mat-mdc-floating-label {
+  color: $blue-200;
+}
+.mat-mdc-select-value {
+  color: $white;
+  text-transform: capitalize;
+  font-weight: $font-weight-semi-bold;
+  font-family: $font-family-base;
+}
+.mat-mdc-form-field-infix {
+  min-width: 15rem;
+}
+.mat-mdc-select-arrow {
+  color: $white;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled)
+  .mdc-line-ripple::before {
+  background: transparent;
+  border: 0;
+}

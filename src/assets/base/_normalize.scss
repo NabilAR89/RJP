@@ -5,8 +5,12 @@ html {
 
 body {
   height: 100%;
+  font-size: 1.6rem;
   overflow-x: hidden;
   position: relative;
+  background-color: $body;
+  font-weight: $font-weight-normal;
+  color: $primary;
 }
 
 input::-ms-clear,
@@ -55,7 +59,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: $font-family-secondary;
+  font-family: $font-family-base;
   font-weight: $font-weight-bold;
 }
 

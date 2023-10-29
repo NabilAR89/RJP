@@ -1,44 +1,9 @@
 import { NgModule } from '@angular/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  imports: [
-    // MatButtonModule,
-    // MatFormFieldModule,
-    // MatInputModule,
-    // MatDialogModule,
-    // MatSelectModule,
-    // MatSnackBarModule,
-    // MatDatepickerModule,
-    // MatCheckboxModule,
-    // MatIconModule,
-    // MatSlideToggleModule,
-    // MatRadioModule,
-    // MatSliderModule,
-    // MatNativeDateModule,
-    // MatMenuModule,
-    // MatPaginatorModule,
-    // MatProgressSpinnerModule,
-    // MatTabsModule,
-  ],
-  exports: [
-    // MatButtonModule,
-    // MatFormFieldModule,
-    // MatInputModule,
-    // MatDialogModule,
-    // MatSelectModule,
-    // MatSnackBarModule,
-    // MatDatepickerModule,
-    // MatCheckboxModule,
-    // MatIconModule,
-    // MatSlideToggleModule,
-    // MatRadioModule,
-    // MatSliderModule,
-    // MatNativeDateModule,
-    // MatMenuModule,
-    // MatPaginatorModule,
-    // MatProgressSpinnerModule,
-    // MatTabsModule,
-  ],
+  imports: [MatSelectModule],
+  exports: [MatSelectModule],
   declarations: [],
 })
 export class MaterialModule {}

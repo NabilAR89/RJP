@@ -1,0 +1,21 @@
+.main-wrapper {
+  padding-top: 10rem;
+}
+
+.section-title {
+  min-height: 15rem;
+  font-weight: $font-weight-semi-bold;
+  background-position: right 300px bottom -10px !important;
+  background-size: 300% !important;
+  background: radial-gradient(
+    circle,
+    rgba(232, 77, 112, 1) 0%,
+    rgba(163, 55, 246, 1) 50%,
+    rgba(40, 167, 237, 1) 100%
+  );
+  @include border-radius(1rem);
+}
+
+.filter-area {
+  @include border-radius(1rem);
+}
